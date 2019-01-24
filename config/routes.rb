@@ -8,3 +8,6 @@ Rails.application.routes.draw do
 
   end
 end
+
+
+#string query params --> 
