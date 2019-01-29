@@ -1,5 +1,6 @@
 class Api::RecipesController < ApplicationController       #namespace
   def index
+    
     @recipes = Recipe.all
 
     search_terms = params[:search]    #these are string query params passed in by ?search= in the URL bar
@@ -26,6 +27,8 @@ class Api::RecipesController < ApplicationController       #namespace
   end
 
   def show
+    @current_user = current_user
+    
     recipe_id = params[:id]     #you can put params[:id] in place of recipe_id on the next line
     @recipe = Recipe.find(recipe_id)
     render 'show.json.jbuilder'
