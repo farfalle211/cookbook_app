@@ -20,7 +20,8 @@ class Api::RecipesController < ApplicationController       #namespace
                           chef: params[:chef],
                           ingredients: params[:ingredients],
                           directions: params[:directions],
-                          prep_time: params[:prep_time]
+                          prep_time: params[:prep_time],
+                          image_url: params[:image_url]
                         )
     @recipe.save
     render 'show.json.jbuilder'   #if we want to display one, we use the show view. 
