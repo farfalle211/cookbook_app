@@ -1,4 +1,10 @@
 class Recipe < ApplicationRecord
+   validates :title, presence: true
+   validates :prep_time, presence: true
+   validates :prep_time, numericality: {only_integer: true, greater_than: 0}
+   validates :ingredients, presence: true
+   validates :directions, presence: true
+
   def ingredients_list
     ingredients.split(", ")   #can call self because you are inside the Class, so you are already working on the object. 
     

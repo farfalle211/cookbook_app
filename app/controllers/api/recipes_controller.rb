@@ -23,8 +23,12 @@ class Api::RecipesController < ApplicationController       #namespace
                           prep_time: params[:prep_time],
                           image_url: params[:image_url]
                         )
-    @recipe.save
-    render 'show.json.jbuilder'   #if we want to display one, we use the show view. 
+    if @recipe.save
+      render 'show.json.jbuilder'   #if we want to display one, we use the show view. 
+    else
+      render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
+    end
+
   end
 
   def show

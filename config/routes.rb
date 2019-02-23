@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
       post '/sessions' => 'sessions#create'
 
-
       
       get '/recipes' => 'recipes#index'   #recipes must be plural according to restful routing conventions
       post '/recipes' => 'recipes#create'
